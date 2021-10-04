@@ -8,7 +8,19 @@ song {
     padding : 8px 8px;
     text-align: center;
     font-weight: 200; font-size: 25px;
-    border-bottom: 2px solid #000000;
+    border-bottom: 3px solid #000000;
 }
 
-song artists, title, genre, year{display: block; font-weight: 200;}
+song artists, musicTitle, genre, year{display: block; font-weight: 200;}
+song artists :before {
+    content: "Artists: "; font-weight: bold;
+}
+song musicTitle :before {
+    content: "Title: "; font-weight: bold;
+}
+song genre :before {
+    content: "Genre: "; font-weight: bold;
+}
+song year :before {
+    content: "Year: "; font-weight: bold;
+}
