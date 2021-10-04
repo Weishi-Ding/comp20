@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href = "style.css" ?>
+
+<list>
+    <song>
+        <artists>Seven Lions</artists>
+        <title>First Time</title>
+        <year>2018</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+    <song>
+        <artists>SLANDER</artists>
+        <title>Love is Gone</title>
+        <year>2019</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+    <song>
+        <artists>A Great Big World, Christina Aguilera</artists>
+        <title>Say Something</title>
+        <year>2013</year>
+        <genre>Pop</genre>
+    </song>
+    <song>
+        <artists>Taylor Swift, Bon Iver</artists>
+        <title>Exile</title>
+        <year>2020</year>
+        <genre>Country/Folk</genre>
+    </song>
+    <song>
+        <artists>Illenium</artists>
+        <title>Fractures</title>
+        <year>2017</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+    <song>
+        <artists>Kina</artists>
+        <title>Can We Kiss Forever?</title>
+        <year>2019</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+    <song>
+        <artists>Don Diablo, Marnik</artists>
+        <title>Children Of A Miracle</title>
+        <year>2017</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+    <song>
+        <artists>gnash</artists>
+        <title>i hate u, i love u</title>
+        <year>2016</year>
+        <genre>Alternative</genre>
+    </song>
+    <song>
+        <artists>Martin Garrix, David Guetta</artists>
+        <title>So Far Away</title>
+        <year>2017</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+    <song>
+        <artists>Avicii</artists>
+        <title>Waiting For Love</title>
+        <year>2015</year>
+        <genre>Dance/Electronic</genre>
+    </song>
+</list>
