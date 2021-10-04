@@ -12,15 +12,15 @@ song {
 }
 
 song artists, musicTitle, genre, year{display: block; font-weight: 200;}
-song artists :before {
+song artists ::before {
     content: "Artists: "; font-weight: bold;
 }
-song musicTitle :before {
+song musicTitle ::before {
     content: "Title: "; font-weight: bold;
 }
-song genre :before {
+song genre ::before {
     content: "Genre: "; font-weight: bold;
 }
-song year :before {
+song year ::before {
     content: "Year: "; font-weight: bold;
 }
