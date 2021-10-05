@@ -1,0 +1,14 @@
+html {
+    box-sizing: border-box;
+}
+  
+li {
+    float: left;
+  }
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+  }
