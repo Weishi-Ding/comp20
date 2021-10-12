@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Joe's Hotdogs</title>
+  </head>
+
+  <body>
+    <h1>Joe's Hotdogs</h1>
+    <h2>Your Order</h2>
+    <script language="javascript">
+      var hotdogPrice = 3.75;
+      var friesPrice = 2.00;
+      var drinkPrice = 1.50;
+      var MIN = 20.00;
+      var taxRate = 0.0625;
+      var total = 0;
+      var tax;
+
+      function getInput(itemName) {
+        var input = parseInt(prompt("How many " + itemName +" would you like to have?"));
+        return input;
+      }
+
+      function Subtotal(itemName, num, price) {
+        total += num * price;
+        subtotal = num * price
+        document.write("<p> " + itemName + ": " + num + " totals " + calculatePrice(subtotal));
+        document.write("</p><br/>");
+      }
+      
+      function calculatePrice(price) {
+        return "$" + price.toFixed(2);
+      }
+
+      var numHotdogs = getInput("hotdogs");
+      var numFries = getInput("fries");
+      var numDrinks = getInput("sodas");
+     Subtotal("Hotdogs", numHotdogs, hotdogPrice);
+     Subtotal("Fries", numFries, friesPrice);
+     Subtotal("Drinks", numDrinks, drinkPrice);
+      if (total >= MIN) {
+        document.write("<p>Applied 10% discount.</p><br/>");
+        total *= 0.9;
+      }
+      tax = total * taxRate;
+      document.write("<p>Total: " + calculatePrice(total) + "</p><br/>");
+      document.write("<p>Tax: " + calculatePrice(tax) + "</p><br/>");
+      document.write("<p>Total(tax included): " + calculatePrice(total *= (1+taxRate)) + "</p><br/>");
+    </script>
+  </body>
+</html>
