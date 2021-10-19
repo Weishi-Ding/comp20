@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Lottery Simulator</title>
+  </head>
+
+  <body>
+    <h1>Luck For Life</h1>
+    <script language="javascript">
+        var randWinningNums = [];
+        var randLuckyBall = Math.floor(Math.random() * (18 - 1) + 1);
+        var userWinningNums = [];
+        var userWinningLuckyBall;
+        var matchCount = 0;
+        var ballStatus;
+
+
+        function generateRandomWinning() {
+            for(let i = 0; i < 5; i++) {
+                randWinningNums.push(Math.floor(Math.random() * (48 - 1) + 1));
+            }
+            randWinningNums.sort(function(a, b){return a - b});
+        }
+        
+        function digitCheck(char) {
+            return (char >= '1') && (char <= '9');
+        }
+
+        function inputWinningNumbers() {
+            let inputStr = prompt("Enter your FIVE number from 1 to 48, separted by space:");
+            let i = 0;
+            while(i < inputStr.length) {
+                if(digitCheck(inputStr.charAt(i)) == false) {
+                    while(i < inputStr.length && (digitCheck(inputStr.charAt(i)) == false)) {
+                        i++;
+                    }
+                }
+                else {
+                    userWinningNums.push(parseInt(inputStr.substring(i)));
+                    i++;
+                    while(i < inputStr.length && digitCheck(inputStr.charAt(i))) {
+                        i++;
+                    }
+                }
+
+            }
+            userWinningNums.sort(function(a, b){return a - b});
+        }
+        
+
+        function inputWinningBall() {
+            userWinningLuckyBall = parseInt(prompt("Please enter the winning lucky ball (from 1 to 18)"));
+        }
+
+        function getPrize() {
+            let lbMatch = (userWinningLuckyBall == randLuckyBall);
+            console.log("breakpoint1");
+            let randWinningIndex = 0;
+            let actualWinningIndex = 0;
+
+            if(lbMatch) {
+                console.log("breakpoint2");
+                ballStatus = "Lucky ball match";
+            }
+            else {
+                console.log("breakpoint3");
+                ballStatus = "Lucky ball does not match";
+                
+            }
+            document.write("<p>Lucky Ball Match Staus: "+ ballStatus +"</p><br/>");
+            // double pointer algo to find number of matches
+            while((randWinningIndex < 5) &&(actualWinningIndex < 5)) {
+                if(userWinningNums[actualWinningIndex] == randWinningNums[randWinningIndex]) {
+                    matchCount += 1;
+                    actualWinningIndex += 1;
+                    randWinningIndex += 1;
+                }
+                else if(userWinningNums[actualWinningIndex] > randWinningNums[randWinningIndex]) {
+                    randWinningIndex+=1;
+                }
+                else {
+                    actualWinningIndex+=1;
+                }
+            }
+            document.write("<p>Number of matches:"+ matchCount +"</p><br/>");
+            if(lbMatch && matchCount == 0) {
+                prizeToScreen(4);
+            }
+            else if(lbMatch && matchCount == 1) {
+                prizeToScreen(6);
+            }
+            else if((lbMatch == false) && matchCount == 2) {
+                prizeToScreen(3);
+            }
+            else if(lbMatch && matchCount == 2) {
+                prizeToScreen(25);
+            }
+            else if((lbMatch == false) && matchCount == 3) {
+                prizeToScreen(20);
+            }
+            else if(lbMatch && matchCount == 3) {
+                prizeToScreen(150);
+            }
+            else if((lbMatch == false) && matchCount == 4) {
+                prizeToScreen(200);
+            }
+            else if(lbMatch && matchCount == 4) {
+                prizeToScreen(5000);
+            }
+            else if((lbMatch == false) && matchCount == 5) {
+                prizeToScreen("25000 a year for LIFE");
+            }
+            else if(lbMatch && matchCount == 5) {
+                prizeToScreen("7000 a week for LIFE");
+            }
+        }
+
+        function arrayToScreen(outputArray) {
+            for(let i = 0; i < outputArray.length; i++) {
+                document.write(" "+outputArray[i]);
+            }
+        }
+
+        function prizeToScreen(prize){
+            console.log("output price");
+            document.write("<p>You win $ "+ prize + "!</p><br/>")
+        }
+
+        document.write("<p>Random winning numbers are: ");
+        generateRandomWinning();
+        arrayToScreen(randWinningNums);
+        document.write(" Lucky Ball: " + randLuckyBall +"</p><br/>");
+        inputWinningNumbers();
+        inputWinningBall();
+        
+        document.write("<p>Your pick:");
+        arrayToScreen(userWinningNums);
+        document.write(" Lucky Ball: " + userWinningLuckyBall +"</p><br/>");
+        getPrize();
+
+    </script>
+  </body>
+</html>
