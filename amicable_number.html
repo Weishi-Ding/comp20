@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>amicable numbers</title>
+</head>
+<body>
+    <h1>amicable numbers</h1>
+    <script language = "javascript">
+        var input1;
+        var input2;
+        
+        window.onload = function() {
+            document.getElementById("myBtn").addEventListener("click", clickButton);
+        }
+        function isAFactor(number, factor) {
+            return number % factor == 0;
+        }
+        function displayNumber() {
+            input1 = parseInt(document.getElementById("input1").value);
+            input2 = parseInt(document.getElementById("input2").value);
+
+            if(isNaN(input1) || isNaN(input2)){
+                alert("Both input fields need to be numbers");
+                return;
+            }
+
+            document.getElementById("content").innerHTML += ("<p>Numbers 1 is " + input1 + " </p><br>");
+            document.getElementById("content").innerHTML += ("<p>Numbers 2 is " + input2 + "</p><br>");
+        }
+        
+
+        //display the factors
+        //input: factors is the Array of factors; number is the user input number
+        function diagonosticDisplayFactors(factors, number) {
+            if(Array.isArray(factors) && Number.isInteger(number)) {
+                
+                document.getElementById("content").innerHTML += ("<p>Number " + number + " has factors: " + factors.toString() + " </p><br>");
+            }
+        }
+        //generate all factors of a number and store in an array
+        function getAllFactor(number) {
+            let factorsArray = [];
+            let factor = 1;
+            
+            while(factor < number){
+                
+                if(isAFactor(number, factor)){
+                    factorsArray.push(factor);
+                }
+                factor++;
+            }
+            return factorsArray;
+        }
+        function sumOfArray(factorsArray) {
+            let sum = 0;
+            for(let i = 0; i < factorsArray.length; i++) {
+                sum += factorsArray[i];
+            }
+            return sum;
+        }
+        function clickButton() {
+            displayNumber();
+            let factorsOfNum1 = getAllFactor(input1);
+            let factorsOfNum2 = getAllFactor(input2);
+            diagonosticDisplayFactors(factorsOfNum1, 1);
+            diagonosticDisplayFactors(factorsOfNum2, 2);
+            let amicableNum1 = ( input2 == sumOfArray(factorsOfNum1));
+            let amicableNum2 = ( input1 == sumOfArray(factorsOfNum2));
+            let amicable = amicableNum1 && amicableNum2;
+            if(amicable) {
+                document.getElementById("content").innerHTML += "<p>Numbers 1 and Numbers 2 are amicable numbers</p><br>";
+            }
+            else {
+                document.getElementById("content").innerHTML += "<p>Numbers 1 and Numbers 2 are not amicable numbers</p><br>";
+            }
+        }
+
+    </script>
+    <form>
+        Number 1<input type= "number" id = "input1"><br>
+        Number 2<input type="number" id = "input2"><br>
+        <input type="button" id = "myBtn" value="Check whether two numbers are amicable numbers">
+    </form><br>
+    <div id="content"></div>
+
+</body>
+
+</html>
