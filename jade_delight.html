@@ -49,6 +49,23 @@ function setDeliveryPickUp()
 		  $(".deliveryInfoInput").attr("required", true);
 	  }
   }
+  function validation() {
+      if(validPhoneNumber()){
+            console.log("get validation");
+            let total = document.getElementById('total').value;
+            let option = $("input[name='p_or_d']:checked").val();
+            let time = new Date();
+            if (option == "delivery") {
+                time.setMinutes( time.getMinutes() + 30 );
+            } else {
+                time.setMinutes( time.getMinutes() + 15 );
+            }
+            alert("Your order total is: " + total + "\n" + "Your order ready at: "+ time + "\n");
+            return true;
+      }
+      else {
+          return false;
+	}}
   function validPhoneNumber()
   {
 	  let phone = $("input[name='phone']").val();
@@ -118,7 +135,7 @@ function setDeliveryPickUp()
 </script>
 
 <h1>Jade Delight</h1>
-<form onsubmit="return validPhoneNumber()">
+<form onsubmit="validation()">
 
 <p>First Name: <input type="text"  name='fname' /></p>
 <p>Last Name*:  <input type="text"  name='lname' /></p>
