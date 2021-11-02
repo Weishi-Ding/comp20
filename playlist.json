@@ -2,13 +2,13 @@
     {
       "artist": ["Seven Lions"],
       "title": "First Time",
-      "genre": ["Electronic","Dance"],
+      "genre": ["Electronic", "Dance"],
       "year": "2018"
     },
     {
       "artist": ["SLANDER"],
       "title": "Love is Gone",
-      "genre": ["Electronic","Dance"],
+      "genre": ["Electronic", "Dance"],
       "year": "2019"
     },
     {
@@ -26,7 +26,7 @@
     {
       "artist": ["Illenium"],
       "title": "Fractures",
-      "genre": ["Electronic","Dance"],
+      "genre": ["Electronic", "Dance"],
       "year": "2017"
     },
     {
@@ -50,7 +50,7 @@
     {
       "artist": ["Martin Garrix", "David Guetta"],
       "title": "So Far Away",
-      "genre": ["Electronic","Dance"],
+      "genre": ["Electronic", "Dance"],
       "year": "2017"
     },
     {
