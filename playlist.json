@@ -2,17 +2,17 @@
     {
       "artist": ["Seven Lions"],
       "title": "First Time",
-      "genre": ["Electronic"],
+      "genre": ["Electronic","Dance"],
       "year": "2018"
     },
     {
       "artist": ["SLANDER"],
       "title": "Love is Gone",
-      "genre": ["Electronic"],
+      "genre": ["Electronic","Dance"],
       "year": "2019"
     },
     {
-      "artist": ["A Great Big World, Christina Aguilera"],
+      "artist": ["A Great Big World", "Christina Aguilera"],
       "title": "Say Something",
       "genre": ["Pop"],
       "year": "2013"
@@ -20,13 +20,13 @@
     {
       "artist": ["Taylor Swift", "Bon Iver"],
       "title": "Exile",
-      "genre": ["Country"],
+      "genre": ["Country", "Pop"],
       "year": "2020"
     },
     {
       "artist": ["Illenium"],
       "title": "Fractures",
-      "genre": ["Electronic"],
+      "genre": ["Electronic","Dance"],
       "year": "2017"
     },
     {
@@ -48,15 +48,15 @@
       "year": "2017"
     },
     {
-      "artist": ["Martin Garrix, David Guetta"],
+      "artist": ["Martin Garrix", "David Guetta"],
       "title": "So Far Away",
-      "genre": ["Electronic"],
+      "genre": ["Electronic","Dance"],
       "year": "2017"
     },
     {
       "artist": ["Avicii"],
       "title": "Waiting For Love",
-      "genre": ["Electronic"],
+      "genre": ["Electronic","Dance"],
       "year": "2015"
     }
 ]
