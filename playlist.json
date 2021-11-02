@@ -24,15 +24,15 @@
       "year": "2020"
     },
     {
-      "artist": ["Illenium"],
-      "title": "Fractures",
-      "genre": ["Electronic", "Dance"],
-      "year": "2017"
+      "artist": ["Taylor Swift", "Tim McGraw"],
+      "title": "Highway Don't Care",
+      "genre": ["Country", "Rock"],
+      "year": "2013"
     },
     {
       "artist": ["Don Diablo", "Marnik"],
       "title": "Children Of A Miracle",
-      "genre": ["Electronic"],
+      "genre": ["Electronic", "Dance"],
       "year": "2017"
     },
     {
@@ -54,9 +54,9 @@
       "year": "2017"
     },
     {
-      "artist": ["Avicii"],
-      "title": "Waiting For Love",
-      "genre": ["Electronic","Dance"],
-      "year": "2015"
+      "artist": ["Imagine Dragons"],
+      "title": "Radioactive",
+      "genre": ["Rock"],
+      "year": "2012"
     }
 ]
