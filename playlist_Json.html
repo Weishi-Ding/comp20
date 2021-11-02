@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Song List</title>
+    <style type="text/css">
+    html {
+        box-sizing: border-box;
+    }
+
+    body {
+        color: #343434;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    h1 {
+
+        text-align: center;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    .content {
+        max-width: 1920px;
+        width: 100%;
+        margin: 0 60px;
+        padding: 60px 0;
+        text-align: center;
+    }
+    .content-raw {
+        max-width: 1920px;
+        width: 100%;
+        margin: 0 60px;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .btn{
+      background-color: rgb(60, 60, 60);
+      border: none;
+      color: white;
+      padding-top:15px;
+      padding-bottom:15px;
+      padding-right:20px;
+      padding-left:20px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      margin: auto;
+      
+    }
+    .btn:hover{
+      background-color: #000000;
+    }
+    </style>    
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script language="javascript">
+      function processData() {
+        request = new XMLHttpRequest();
+        request.open("GET", "https://weishi-ding.github.io/comp20/playlist.json", true);
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4 && request.status == 200) {
+            listStr = request.responseText;
+            $("#raw").append("<div>" + listStr+"</div>");
+            defaultDisplay(listStr);
+          }
+        };
+
+        request.send();
+      }
+      
+      function defaultDisplay(listStr) {
+        list = JSON.parse(listStr);
+        let genres = new Set();
+        list.forEach(function (song) {
+            displaySong(song);
+            song["genre"].forEach(function(genre) {
+                genres.add(genre);
+              });
+            });
+        for (let genre of genres.values()) {
+            optionHTML = "<option value='"+genre+"'>"+genre+"</option>";
+            $("#genres").append(optionHTML);
+        }
+      }
+ 
+      function filter() {
+        songsByGenre($("#genres").val());
+      }
+
+   
+      function songsByGenre(genre) {
+        $("#list").html("<h2>Filtered list of songs</h2>");
+        list.forEach(function (song){
+          if (song["genre"].includes(genre) || genre == "All") {
+            displaySong(song);
+          }
+        });
+      }
+
+      
+      function displaySong(song) {
+        songHtml = "<div class='song'><h4>Title: "+song["title"]+"</h4>";
+        songHtml += "<p>Artist(s): "
+        
+            if(song["artist"].length == 1) {
+                songHtml += song["artist"];
+        }
+        else {
+            let artistLength = song["artist"].length;
+            for(let i = 0; i < artistLength-1; i++) {
+                songHtml += song["artist"][i] + ", &nbsp";
+            }
+            songHtml += song["artist"][artistLength-1];
+        }
+       
+        
+        songHtml += "<p>Genre(s): "
+        let genLength = song["genre"].length;
+        console.log("length of genre:" + genLength);
+        if(song["genre"].length == 1) {
+            console.log("genere length is 1");
+            songHtml += song["genre"];
+        }
+        else {
+            let genreLength = song["genre"].length;
+            for(let i = 0; i < genreLength-1; i++) {
+                songHtml += song["genre"][i] + ", &nbsp";
+            }
+            songHtml += song["genre"][genreLength-1];
+        }
+       
+        songHtml += "<p>Year released: "+song["year"]+"</p>"
+        songHtml += "</p></p>"; 
+        songHtml += "</div><br/>"; 
+        $("#list").append(songHtml);
+      }
+
+    </script>
+    
+  </head>
+<body onload="processData()">
+    <main>
+      <section class="main">
+        <h1>Song List</h1>
+        <div id="raw" class="content">
+          <h2>List in raw JSON String</h2>
+        </div>
+        <div class=" user-friendly">
+          <form id="selectGenres">
+            <label for="genres">Choose a genre: </label>
+            <select name="genres" id="genres">
+              <option value="All">All</option>
+            </select>
+            <input type="button" class="btn" value="Filter" onclick="filter()"></input>
+          </form>
+        </div>
+        <div id="list" class="content">
+          <h2>List of all songs by genres</h2>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
